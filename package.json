@@ -1,5 +1,16 @@
 {
-    "name": "TP1", 
+    "name": "TP1",
     "version": "1.0.0",
-    "type": "module"
+    "type": "module",
+    "devDependencies": {
+        "jest": "^29.3.1",
+        "mocha": "^10.2.0"
+    },
+    "scripts": {
+        "test": "mocha"
+    },
+    "dependencies": {
+        "babel-jest": "^29.3.1",
+        "ts-jest": "^29.0.3"
+    }
 }
