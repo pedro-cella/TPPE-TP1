@@ -3,9 +3,7 @@ import { ValorRendimentoException } from './exceptions/ValorRendimentoInvalidoEx
 import { ValorDeducaoInvalidoException } from './exceptions/ValorDeducaoInvalidoException.mjs';
 import { NomeEmBrancoException } from './exceptions/NomeEmBrancoException.mjs';
 
-
-
-class IRPF {
+export class IRPF {
     constructor() {
         this.rendimentos = [];
         this.deducoes = [];
