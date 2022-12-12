@@ -1,5 +1,9 @@
-import * as DescricaoEmBrancoException from './exceptions/DescricaoEmBrancoException.mjs';
-import * as ValorRendimentoException from './exceptions/ValorRendimentoInvalidoException.mjs';
+import { DescricaoEmBrancoException } from './exceptions/DescricaoEmBrancoException.mjs';
+import { ValorRendimentoException } from './exceptions/ValorRendimentoInvalidoException.mjs';
+import { ValorDeducaoInvalidoException } from './exceptions/ValorDeducaoInvalidoException.mjs';
+import { NomeEmBrancoException } from './exceptions/NomeEmBrancoException.mjs';
+
+
 
 class IRPF {
     constructor() {
@@ -10,9 +14,10 @@ class IRPF {
         this.dependentes = [];
     }
 
+
     cadastrarRendimentos = (desc, value) => {
-        if (!desc || desc.length < 1) return console.log('erro desc');
-        if (value === null || value < 0) return console.log('erro value');     
+        if (!desc || desc.length < 1) return this.checkDescricao();
+        if (value === null || value < 0) throw new ValorRendimentoException();      
         this.rendimentos.push({ desc, value });
     }
 
@@ -23,25 +28,25 @@ class IRPF {
     }
 
     cadastrarContribuicaoPrevidenciaria = (desc, value) => {
-        if (!desc || desc.length < 1) return this.checkString();
-        if (value === null || value < 0) return this.checkValue();
+        if (!desc || desc.length < 1) return this.checkDescricao();
+        if (value === null || value < 0) return this.checkValorDeducao();
         this.contribuicaoPrevidenciaria.push({ desc, value });
      }
     
     cadastrarPensaoAlimenticia = (value) => {
-        if (value === null || value < 0) return this.checkValue();
+        if (value === null || value < 0) return this.checkValorDeducao();
         this.pensaoAlimenticia += value;
      }
 
     cadastrarDependente = (name, birth) => {
-        if (!name || name.length < 1) return this.checkString();
-        if (!birth || birth.length < 1) return this.checkString();
+        if (!name || name.length < 1) throw new NomeEmBrancoException();
+        if (!birth || birth.length < 1);
         this.dependentes.push({ name, birth });
     }
 
     cadastrarDeducoes = (desc, value) => {
-        if (!desc || desc.length < 1) return this.checkString();
-        if (value === null || value < 0) return this.checkValue();
+        if (!desc || desc.length < 1) return this.checkDescricao();
+        if (value === null || value < 0) return this.checkValorDeducao();
         this.deducoes.push({ desc, value });
     }
 
@@ -59,12 +64,12 @@ class IRPF {
         return totalDeducoes;
     }
 
-    checkValue(value) {
-        console.log('erro desc');
+    checkDescricao(desc) { 
+        throw new DescricaoEmBrancoException();
     }
 
-    checkString(desc) {
-        console.log('erro value');
+    checkValorDeducao(value) {
+        throw new ValorDeducaoInvalidoException();
     }
 
     get baseCalculo() {
