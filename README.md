@@ -2,11 +2,11 @@
 
 # Membros do grupo
 
-|Matrícula | Aluno | GitHub |
-| -- | -- | -- |
-| 17/0144488 | Henrique Amorim Costa Melo | [@HenriqueAmorim20](https://github.com/HenriqueAmorim20) | 
-| 17/0122549 | Paulo Gonçalves Lima | [@PauloGoncalvesLima](https://github.com/PauloGoncalvesLima) |
-| 17/0113060 | Pedro Vítor de Salles Cella | [@pedro-cella](https://github.com/pedro-cella) |
+| Matrícula  | Aluno                       | GitHub                                                       |
+| ---------- | --------------------------- | ------------------------------------------------------------ |
+| 17/0144488 | Henrique Amorim Costa Melo  | [@HenriqueAmorim20](https://github.com/HenriqueAmorim20)     |
+| 17/0122549 | Paulo Gonçalves Lima        | [@PauloGoncalvesLima](https://github.com/PauloGoncalvesLima) |
+| 17/0113060 | Pedro Vítor de Salles Cella | [@pedro-cella](https://github.com/pedro-cella)               |
 
 # Linguagem de Programação escolhida
 
@@ -57,4 +57,3 @@ Nesses três casos deverá, para efeito de evidência, ter a seguinte sequencia 
     falsificação;
     duplicação;
     triangulação.
-
