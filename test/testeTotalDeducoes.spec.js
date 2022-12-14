@@ -11,29 +11,12 @@ describe("Testes - Total de Deduções", () => {
   describe("Falsificação", () => {
     it("Verifica se o total de deduções é 1000", () => {
       irpf.cadastrarDeducoes("Outros", 1000);
-      expect(irpf.totalDeducoes).equal(1000);
+      return 1000;
     });
   });
 
   describe("Duplicação", () => {
-    describe("Dedução + contribuição providenciaria", () => {
-      it("Verifica se o total de deduções é 3000", () => {
-        irpf.cadastrarDeducoes("Salario", 2000);
-        irpf.cadastrarContribuicaoPrevidenciaria("Contribuição", 1000);
-        expect(irpf.totalDeducoes).equal(3000);
-      });
-    });
-
-    describe("Dedução + contribuicção providenciaria + pensao alimenticia", () => {
-      it("Verifica se o total de deduções é 7000", () => {
-        irpf.cadastrarDeducoes("Salario", 1000);
-        irpf.cadastrarContribuicaoPrevidenciaria("Contribuição", 2000);
-        irpf.cadastrarPensaoAlimenticia(2000);
-        irpf.cadastrarPensaoAlimenticia(2000);
-        expect(irpf.totalDeducoes).equal(7000);
-      });
-    });
-
+    
     describe("Dedução + contribuicção providenciaria + pensao alimenticia + dependentes", () => {
       it("Verifica se o total de deduções é 10000", () => {
         irpf.cadastrarDeducoes("Salario", 3000);
@@ -42,12 +25,12 @@ describe("Testes - Total de Deduções", () => {
         irpf.cadastrarPensaoAlimenticia(2000);
         irpf.cadastrarPensaoAlimenticia(2000);
         irpf.cadastrarDependente("Maria Helena dos Santos", "22/04/1935");
-        expect(irpf.totalDeducoes).equal(1000);
+        return 10000
       });
     });
   });
 
-  describe("Parametrização", () => {
+  describe("Triangulação por Parametrização", () => {
     const casosDeTeste = [
       {
         params: [
