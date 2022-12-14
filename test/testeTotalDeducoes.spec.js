@@ -62,6 +62,27 @@ describe("Testes - Total de Deduções", () => {
         ],
         expected: 3600,
       },
+      {
+        params: [
+          {
+            desc: "Auxílio Emergencial",
+            value: 600,
+          },
+          {
+            desc: "Loteria",
+            value: 2000,
+          },
+          {
+            desc: "Salário",
+            value: 1000,
+          },
+          {
+            desc: "Aluguel",
+            value: 2400
+          }
+        ],
+        expected: 6000,
+      },
     ];
 
     casosDeTeste.forEach(testCase => {
