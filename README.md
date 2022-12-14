@@ -26,7 +26,7 @@ Para poder rodar o projeto utilizando o docker apenas utilize o comando do make:
 
 ``make run_v1``
 
-##### OBS:
+##### OBS
 
 O comando make run utiliza a [versão 2.0 do docker-compose](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 
