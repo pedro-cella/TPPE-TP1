@@ -11,4 +11,4 @@ RUN ls
 RUN npm install
 RUN npm install chai
 
-ENTRYPOINT [ "npm", "run", "test:cov:watch"]
+ENTRYPOINT [ "npm", "run", "test:cov"]
