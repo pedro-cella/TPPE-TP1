@@ -1,6 +1,6 @@
 # TP1
 
-# Membros do grupo
+## Membros do grupo
 
 | Matrícula  | Aluno                       | GitHub                                                       |
 | ---------- | --------------------------- | ------------------------------------------------------------ |
@@ -8,15 +8,31 @@
 | 17/0122549 | Paulo Gonçalves Lima        | [@PauloGoncalvesLima](https://github.com/PauloGoncalvesLima) |
 | 17/0113060 | Pedro Vítor de Salles Cella | [@pedro-cella](https://github.com/pedro-cella)               |
 
-# Linguagem de Programação escolhida
+## Linguagem de Programação escolhida
 
 JavaScript
 
-# Como rodar
+## Como rodar
 
-# Enunciado do exercício
+### Docker
 
-## Trabalho Prático 1 - Test-Driven Development
+Para poder rodar o projeto utilizando o docker apenas utilize o comando do make:
+
+#### Docker compose v2:
+
+``make run``
+
+#### Docker compose v1:
+
+``make run_v1``
+
+##### OBS:
+
+O comando make run utiliza a [versão 2.0 do docker-compose](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
+
+## Enunciado do exercício
+
+### Trabalho Prático 1 - Test-Driven Development
 
 [Enunciado do trabalho](https://github.com/andrelanna/fga0242/tree/master/tp1)
 
