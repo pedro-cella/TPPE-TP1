@@ -1,4 +1,4 @@
-import { IRPF } from "../IRPF.js";
+import { IRPF } from "../src/IRPF.js";
 import { expect } from "chai";
 
 let irpf;

@@ -1,0 +1,12 @@
+version: '3.0'
+
+
+services:
+
+  tppe_1:
+    build:
+      context: .
+      dockerfile: dockerfile
+    volumes:
+      - ./src/:/app/src
+      - ./test/:/app/test
