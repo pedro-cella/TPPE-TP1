@@ -18,11 +18,11 @@ JavaScript
 
 Para poder rodar o projeto utilizando o docker apenas utilize o comando do make:
 
-#### Docker compose v2:
+#### Docker compose v2
 
 ``make run``
 
-#### Docker compose v1:
+#### Docker compose v1
 
 ``make run_v1``
 
