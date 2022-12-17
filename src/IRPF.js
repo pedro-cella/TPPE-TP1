@@ -119,4 +119,13 @@ export class IRPF {
 
     return this.impostoFaixa5;
   }
+
+
+    get aliquotaEfetiva() {
+    const porcentagem = this.imposto / this.totalRendimentos * 100;
+    const resultadoAliquota = Math.floor(porcentagem * 100) / 100;
+    return resultadoAliquota;
+  }
+
+
 }

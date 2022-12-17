@@ -34,5 +34,96 @@ describe("Testes - Aliquota Efetiva", () => {
     });
   });
 
-  });
+
+
   
+  describe("Triangulação por Parametrização", () => {
+    const casosDeTeste = [
+      {
+        rendimentos: [
+          {
+            desc: "Salário",
+            value: 3000,
+          },
+        ],
+        deducoes: [
+          {
+            desc: "Loteria",
+            value: 1000,
+          }
+        ],
+        expected: 0.24,
+      },
+      {
+        rendimentos: [
+          {
+            desc: "Salário",
+            value: 3000,
+          },
+          {
+            desc: "Aluguel",
+            value: 2000,
+          },
+        ],
+        deducoes: [
+          {
+            desc: "Loteria",
+            value: 1000,
+          },
+          {
+            desc: "Auxílio Emergencia",
+            value: 650,
+          }
+        ],
+        expected: 2.95,
+      },
+      {
+        rendimentos: [
+          {
+            desc: "Salário",
+            value: 6000,
+          },
+          {
+            desc: "Aluguel",
+            value: 2000,
+          },
+        ],
+        deducoes: [
+          {
+            desc: "Loteria",
+            value: 2000,
+          },
+          {
+            desc: "Auxílio Emergencia",
+            value: 650,
+          },
+          {
+            desc: "Outros",
+            value: 2100,
+          }
+        ],
+        expected: 1.65,
+      },
+    ];
+
+    casosDeTeste.forEach(testCase => {
+        it("Resultado da Alíquota efetiva.", () => {
+          const { rendimentos, deducoes, expected } = testCase;
+  
+          rendimentos.forEach(({ desc, value }) => {
+            irpf.cadastrarRendimentos(desc, value);
+          });
+          deducoes.forEach(({ desc, value }) => {
+            irpf.cadastrarDeducoes(desc, value);
+          });
+
+          expect(irpf.aliquotaEfetiva).equals(expected)
+
+        });
+      });
+    });
+
+
+
+  });
+
