@@ -30,6 +30,13 @@ Para poder rodar o projeto utilizando o docker apenas utilize o comando do make:
 
 O comando make run utiliza a [versão 2.0 do docker-compose](https://www.docker.com/blog/announcing-compose-v2-general-availability/).
 
+### NPM
+
+Para executar com npm basta rodar:<br>
+``npm install`` <br>
+e em seguida: <br>
+``npm run test:cov``
+
 ## Enunciado do exercício
 
 ### Trabalho Prático 1 - Test-Driven Development
