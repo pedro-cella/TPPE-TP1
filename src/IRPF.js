@@ -19,10 +19,10 @@ export class IRPF {
     this.rendimentos.push({ desc, value });
   };
 
-  get totalRendimentos() {
-    return this.rendimentos.reduce((sum, rendimento) => {
-      return sum + rendimento.value;
-    }, 0);
+  get totalDeducoes() {
+    return [...this.deducoes, ...this.contribuicaoPrevidenciaria]
+      .map(({ value }) => value)
+      .reduce((sum, value) => sum + value, 0) + this.pensaoAlimenticia + (this.dependentes.length * 189.59);
   }
 
   cadastrarContribuicaoPrevidenciaria = (desc, value) => {
@@ -126,6 +126,4 @@ export class IRPF {
     const resultadoAliquota = Math.floor(porcentagem * 100) / 100;
     return resultadoAliquota;
   }
-
-
 }
