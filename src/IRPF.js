@@ -19,12 +19,6 @@ export class IRPF {
     this.rendimentos.push({ desc, value });
   };
 
-  get totalDeducoes() {
-    return [...this.deducoes, ...this.contribuicaoPrevidenciaria]
-      .map(({ value }) => value)
-      .reduce((sum, value) => sum + value, 0) + this.pensaoAlimenticia + (this.dependentes.length * 189.59);
-  }
-
   cadastrarContribuicaoPrevidenciaria = (desc, value) => {
     this.checkDescricao(desc);
     this.checkValorDeducao(value);
@@ -49,14 +43,11 @@ export class IRPF {
   };
 
   get totalDeducoes() {
-    let totalDeducoes = 0;
-    totalDeducoes += this.deducoes.reduce((sum, { value }) => sum + value, 0);
-    totalDeducoes += this.contribuicaoPrevidenciaria.reduce((sum, { value }) => sum + value, 0);
-    totalDeducoes += this.pensaoAlimenticia;
-    totalDeducoes += this.dependentes.length * 189.59;
-
-    return totalDeducoes;
+    return [...this.deducoes, ...this.contribuicaoPrevidenciaria]
+      .map(({ value }) => value)
+      .reduce((sum, value) => sum + value, 0) + this.pensaoAlimenticia + (this.dependentes.length * 189.59);
   }
+  
 
   checkDescricao(desc) {
     if (!desc || desc.length < 1) throw new DescricaoEmBrancoException();
@@ -70,12 +61,18 @@ export class IRPF {
     if (!birth || birth.length < 1) throw new AniversarioEmBrancoException();
   }
 
+  checkNull(value) {
+    if (value === null) throw new ValorInvalidoException();
+  }
+
   checkValorDeducao(value) {
-    if (value === null || value < 0) throw new ValorDeducaoInvalidoException();
+    this.checkNull(value);
+    if (value < 0) throw new ValorDeducaoInvalidoException();
   }
 
   checkValorRendimento(value) {
-    if (value === null || value < 0) throw new ValorRendimentoException();
+    this.checkNull(value);
+    if (value < 0) throw new ValorRendimentoException();
   }
 
   get baseCalculo() {
